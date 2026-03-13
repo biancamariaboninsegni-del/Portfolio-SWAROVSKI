@@ -1,1 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bianca Maria Boninsegni — CRM & Data Insights Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --swan-pink:   #F2A7C3;
+    --pink-deep:   #E8729A;
+    --pink-pale:   #FDE8F1;
+    --pink-softer: #FBF0F6;
+    --canary:      #F7D96B;
+    --powder-blue: #A8C8E8;
+    --grass:       #7CC8A0;
+    --royal-blue:  #1A3A6B;
+    --black:       #0D0D0D;
+    --grey-dark:   #3A3A3A;
+    --grey-mid:    #6A6A6A;
+    --grey-light:  #A8A8A8;
+    --off-white:   #FDFBFD;
+    --rule:        #EDD8E8;
+  }
 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--off-white);
+    color: var(--black);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ══ OCTAGON CLIP UTILITY ══ */
+  .oct {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  }
+
+  /* ══ TOP BAND ══ */
+  .top-band {
+    height: 4px;
+    background: linear-gradient(90deg,
+      var(--royal-blue) 0%,
+      var(--powder-blue) 20%,
+      var(--swan-pink) 45%,
+      var(--canary) 70%,
+      var(--grass) 90%,
+      var(--royal-blue) 100%);
+  }
+
+  /* ══ HERO ══ */
+  .hero {
+    background: var(--pink-pale);
+    padding: 56px 80px 52px;
+    position: relative;
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Background octagon decorations */
+  .hero-oct-1, .hero-oct-2, .hero-oct-3 {
+    position: absolute;
+    border-radius: 0;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    pointer-events: none;
+  }
+  .hero-oct-1 {
+    width: 340px; height: 340px;
+    background: rgba(242,167,195,0.18);
+    right: -80px; top: -80px;
+  }
+  .hero-oct-2 {
+    width: 180px; height: 180px;
+    background: rgba(247,217,107,0.22);
+    right: 140px; top: 20px;
+  }
+  .hero-oct-3 {
+    width: 90px; height: 90px;
+    background: rgba(168,200,232,0.3);
+    right: 260px; bottom: 30px;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-label {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--pink-deep);
+    margin-bottom: 18px;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 1.0;
+    color: var(--black);
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+  }
+  .hero-name em { font-style: italic; color: var(--pink-deep); }
+
+  .hero-title {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--grey-dark);
+    margin-bottom: 6px;
+  }
+
+  .hero-sub {
+    font-size: 12.5px;
+    color: var(--grey-mid);
+    max-width: 520px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* Octagon badge — "Masters of Light" */
+  .hero-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 148px; height: 148px;
+    background: var(--black);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    flex-shrink: 0;
+  }
+  .hero-badge-top {
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--swan-pink);
+    margin-bottom: 6px;
+  }
+  .hero-badge-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.3;
+    color: white;
+  }
+  .hero-badge-bottom {
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--canary);
+    margin-top: 6px;
+  }
+
+  /* Contact strip */
+  .contact-strip {
+    background: var(--black);
+    padding: 14px 80px;
+    display: flex;
+    gap: 36px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .contact-strip a, .contact-strip span {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+  }
+  .contact-strip a:hover { color: var(--swan-pink); }
+  .contact-strip .sep { color: rgba(255,255,255,0.2); }
+
+  /* ══ LAYOUT ══ */
+  .page-wrap {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .main-col {
+    padding: 52px 56px 52px 80px;
+    border-right: 1px solid var(--rule);
+  }
+
+  .side-col {
+    padding: 52px 40px 52px 44px;
+    background: var(--off-white);
+  }
+
+  /* ══ SECTION HEADERS ══ */
+  .section { margin-bottom: 48px; }
+
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .sec-oct {
+    width: 22px; height: 22px;
+    background: var(--swan-pink);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    flex-shrink: 0;
+  }
+
+  .sec-title {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+
+  .sec-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--swan-pink), var(--rule));
+  }
+
+  /* ══ EXPERIENCE ENTRIES ══ */
+  .entry {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .entry:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+  .entry-date {
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--grey-light);
+    text-transform: uppercase;
+    line-height: 1.7;
+    padding-top: 3px;
+  }
+
+  .entry-dot {
+    width: 7px; height: 7px;
+    background: var(--swan-pink);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    margin-bottom: 8px;
+  }
+
+  .entry-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--black);
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+
+  .entry-org {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--pink-deep);
+    margin-bottom: 14px;
+  }
+
+  .entry-bullets { list-style: none; }
+  .entry-bullets li {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 9px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--grey-mid);
+  }
+  .entry-bullets li::before {
+    content: '◆';
+    font-size: 5px;
+    color: var(--swan-pink);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .entry-bullets strong { color: var(--black); font-weight: 600; }
+
+  /* ══ SIDEBAR ══ */
+  .side-sec { margin-bottom: 36px; }
+
+  .side-title {
+    font-size: 7.5px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--pink-deep);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .side-title::before {
+    content: '';
+    display: inline-block;
+    width: 10px; height: 10px;
+    background: var(--swan-pink);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    flex-shrink: 0;
+  }
+
+  .profile-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.5;
+    margin-bottom: 12px;
+    padding-left: 12px;
+    border-left: 2px solid var(--swan-pink);
+  }
+  .profile-attr {
+    font-size: 9px;
+    color: var(--grey-light);
+    letter-spacing: 0.06em;
+    padding-left: 12px;
+    margin-bottom: 14px;
+  }
+  .profile-text {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--grey-mid);
+    line-height: 1.8;
+  }
+
+  /* Competency pills */
+  .comp-group { margin-bottom: 16px; }
+  .comp-group-name {
+    font-size: 7.5px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 7px;
+  }
+  .pill-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
+  .pill {
+    font-size: 9.5px;
+    font-weight: 400;
+    padding: 4px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .pill-pink   { background: var(--pink-pale);  color: var(--pink-deep); }
+  .pill-blue   { background: #EBF3FB;            color: #3A6EA0; }
+  .pill-yellow { background: #FEF8E1;            color: #9A7A10; }
+  .pill-green  { background: #E8F6EF;            color: #2E7A52; }
+  .pill-dark   { background: #EAEAEA;            color: var(--grey-dark); }
+
+  /* Language rows */
+  .lang-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 11.5px;
+  }
+  .lang-row:last-child { border-bottom: none; }
+  .lang-name { font-weight: 500; color: var(--black); }
+  .lang-level {
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pink-deep);
+  }
+
+  /* Education */
+  .edu-entry { margin-bottom: 18px; }
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+  .edu-school {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--grey-light);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .edu-detail { font-size: 10.5px; color: var(--grey-mid); font-weight: 300; }
+  .edu-grade {
+    display: inline-block;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: white;
+    background: var(--swan-pink);
+    padding: 3px 9px;
+    margin-top: 5px;
+    clip-path: polygon(8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px), 0% 8px);
+  }
+
+  /* Tools */
+  .tool-list { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+  .tool-tag {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--black);
+    border: 1px solid var(--rule);
+    padding: 4px 10px;
+    letter-spacing: 0.03em;
+    background: white;
+  }
+
+  /* ══ WONDERLAB BANNER ══ */
+  .wonderlab {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--black);
+    padding: 48px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    position: relative;
+    overflow: hidden;
+  }
+  .wonderlab::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.015) 40px,
+      rgba(255,255,255,0.015) 41px
+    );
+  }
+
+  .wl-card {
+    padding: 32px 28px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    z-index: 1;
+  }
+  .wl-card:last-child { border-right: none; }
+
+  .wl-oct {
+    width: 44px; height: 44px;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .wl-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .wl-label {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .wl-desc {
+    font-size: 11.5px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* ══ FOOTER ══ */
+  .footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--rule);
+  }
+  .footer-left {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--grey-light);
+  }
+  .footer-oct {
+    width: 24px; height: 24px;
+    background: var(--swan-pink);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  }
+
+  /* ══ ANIMATIONS ══ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-name    { animation: fadeUp 0.7s ease both 0.1s; }
+  .hero-title   { animation: fadeUp 0.7s ease both 0.2s; }
+  .hero-sub     { animation: fadeUp 0.7s ease both 0.3s; }
+  .hero-badge   { animation: fadeUp 0.7s ease both 0.4s; }
+  .contact-strip { animation: fadeUp 0.5s ease both 0.5s; }
+</style>
+</head>
+<body>
+
+<div class="top-band"></div>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="hero-oct-1"></div>
+  <div class="hero-oct-2"></div>
+  <div class="hero-oct-3"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">CRM &amp; Data Insights Specialist · Luxury Goods · Retail · Business Analytics</div>
+      <h1 class="hero-name">Bianca Maria<br><em>Boninsegni</em></h1>
+      <div class="hero-title">Data Precision · Customer Intelligence · Loyalty Strategy</div>
+      <p class="hero-sub">Analytical strategist who turns customer data into crystal-clear insight — bridging the precision of CRM systems with the warmth of luxury brand storytelling.</p>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-top">Masters of</div>
+      <div class="hero-badge-name">Data &amp;<br>Light</div>
+      <div class="hero-badge-bottom">Insight</div>
+    </div>
+  </div>
+</header>
+
+<!-- Contact strip -->
+<div class="contact-strip">
+  <a href="mailto:biancamariaboninsegni@gmail.com">biancamariaboninsegni@gmail.com</a>
+  <span class="sep">·</span>
+  <a href="tel:+393661072305">+39 366 107 2305</a>
+  <span class="sep">·</span>
+  <a href="https://linkedin.com/in/biancaboninsegni" target="_blank">LinkedIn</a>
+  <span class="sep">·</span>
+  <span>Bologna, IT &nbsp;/&nbsp; Zurich, CH</span>
+</div>
+
+<!-- ══ MAIN CONTENT ══ -->
+<div class="page-wrap">
+
+  <!-- MAIN COLUMN -->
+  <main class="main-col">
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <div class="sec-head">
+        <div class="sec-oct"></div>
+        <span class="sec-title">Professional Experience</span>
+        <div class="sec-line"></div>
+      </div>
+
+      <!-- CAMPARI -->
+      <div class="entry">
+        <div class="entry-date">
+          <div class="entry-dot"></div>
+          Mar 2025<br>Sep 2025
+        </div>
+        <div>
+          <div class="entry-role">Brand Heritage &amp; Marketing Specialist</div>
+          <div class="entry-org">Campari Group – Galleria Campari · Milan, Italy</div>
+          <ul class="entry-bullets">
+            <li><span><strong>Data-Driven Insights:</strong> Built and maintained robust visitor data reporting systems to track engagement metrics; delivered weekly analytical reports to senior stakeholders to optimise marketing programming.</span></li>
+            <li><span><strong>CRM &amp; Digital Strategy:</strong> Owned the monthly CRM and newsletter strategy, utilising data-led insights to drive community engagement and improve customer retention rates.</span></li>
+            <li><span><strong>Market Intelligence:</strong> Conducted deep-dive competitive intelligence and sensory research to identify growth opportunities and propose data-backed brand renovations.</span></li>
+            <li><span><strong>Operational Analytics:</strong> Monitored campaign performance in real-time using GA4 and Meta Business Manager, translating audience patterns into actionable operational steps.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RICHEMONT -->
+      <div class="entry">
+        <div class="entry-date">
+          <div class="entry-dot"></div>
+          Jan 2024<br>Oct 2024
+        </div>
+        <div>
+          <div class="entry-role">Brand &amp; Operational Coordinator</div>
+          <div class="entry-org">Richemont – Michelangelo Foundation (Homo Faber) · Geneva, CH</div>
+          <ul class="entry-bullets">
+            <li><span><strong>Strategic Reporting:</strong> Developed global impact surveys and statistical consumer profiles for the Young Ambassadors programme, providing data to evaluate programme success and inform future CRM initiatives.</span></li>
+            <li><span><strong>Data Management:</strong> Managed administrative and logistical data workflows for Homo Faber 2024, ensuring accuracy and integrity of data across 50,000+ international visitors from 40+ countries.</span></li>
+            <li><span><strong>Cross-functional Collaboration:</strong> Partnered with international teams to translate data findings into improved digital branding and e-learning experiences.</span></li>
+            <li><span><strong>Performance Metrics:</strong> Evaluated global cultural programmes through quantitative analysis, presenting findings to management to support strategic decision-making.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CHRISTIE'S -->
+      <div class="entry">
+        <div class="entry-date">
+          <div class="entry-dot"></div>
+          Sep 2022<br>Dec 2022
+        </div>
+        <div>
+          <div class="entry-role">Auction &amp; Client Communications Support</div>
+          <div class="entry-org">Christie's – Jewellery Department · Milan, Italy</div>
+          <ul class="entry-bullets">
+            <li><span><strong>Customer Behaviour Analysis:</strong> Conducted deep-dive research into HNWI behaviour and luxury jewellery market trends to inform targeted client-facing communications.</span></li>
+            <li><span><strong>Campaign Support:</strong> Assisted in the execution of the "La Dolce Vita" online auction (€1.77M in sales), ensuring data-consistent standards across all premium consumer touchpoints.</span></li>
+            <li><span><strong>Data-Led Research:</strong> Produced market intelligence reports grounded in MSc research on jewellery trends, providing the basis for prestige brand fluency and targeted marketing efforts.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE COMPETENCIES -->
+    <section class="section">
+      <div class="sec-head">
+        <div class="sec-oct" style="background:var(--powder-blue)"></div>
+        <span class="sec-title">Core Competencies</span>
+        <div class="sec-line" style="background:linear-gradient(90deg,var(--powder-blue),var(--rule))"></div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px 28px;">
+        <div class="comp-group">
+          <div class="comp-group-name">CRM &amp; Data Insights</div>
+          <div class="pill-wrap">
+            <span class="pill pill-pink">Data-driven Engagement</span>
+            <span class="pill pill-pink">Loyalty Analysis</span>
+            <span class="pill pill-pink">Predictive Insight Support</span>
+          </div>
+        </div>
+        <div class="comp-group">
+          <div class="comp-group-name">Analytical Reporting</div>
+          <div class="pill-wrap">
+            <span class="pill pill-yellow">Strategic Dashboards</span>
+            <span class="pill pill-yellow">ROI Tracking</span>
+            <span class="pill pill-yellow">Impact Surveys</span>
+            <span class="pill pill-yellow">Weekly Performance Reports</span>
+          </div>
+        </div>
+        <div class="comp-group">
+          <div class="comp-group-name">Market Intelligence</div>
+          <div class="pill-wrap">
+            <span class="pill pill-green">HNWI Behavioural Analysis</span>
+            <span class="pill pill-green">Luxury Trend Forecasting</span>
+            <span class="pill pill-green">Competitive Benchmarking</span>
+          </div>
+        </div>
+        <div class="comp-group">
+          <div class="comp-group-name">Technical Integration</div>
+          <div class="pill-wrap">
+            <span class="pill pill-blue">GA4 Data Analysis</span>
+            <span class="pill pill-blue">CRM Management</span>
+            <span class="pill pill-blue">Data Quality &amp; Cleansing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="side-col">
+
+    <!-- PROFILE -->
+    <div class="side-sec">
+      <div class="side-title">Profile</div>
+      <p class="profile-quote">"Making an analogy involves taking an aspect of a concept and re-using it in another context, preserving something of its original meaning — so that the resulting combination produces new and effective meaning. This is how the best science works."</p>
+      <p class="profile-attr">— Carlo Rovelli, <em>White Holes</em></p>
+      <p class="profile-text">CRM and data insights specialist with a track record across luxury, heritage, and premium goods. I combine analytical precision — GA4, CRM pipelines, statistical reporting — with an intuition for what drives customer loyalty. Currently relocating to Zurich.</p>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="side-sec">
+      <div class="side-title">Education</div>
+      <div class="edu-entry">
+        <div class="edu-degree">MSc Economics &amp; Management<br>Arts, Culture, Media &amp; Entertainment</div>
+        <div class="edu-school">Università Cattolica del Sacro Cuore</div>
+        <div class="edu-detail">Dissertation: Empirical Analysis of the Jewellery Market · 2021–2023</div>
+        <span class="edu-grade">110 / 110 — Distinction</span>
+      </div>
+      <div class="edu-entry">
+        <div class="edu-degree">Exchange Semester</div>
+        <div class="edu-school">Loyola University New Orleans</div>
+        <div class="edu-detail">Graphic design history · American market storytelling · 2023</div>
+        <span class="edu-grade">GPA 4.0 / 4.0</span>
+      </div>
+      <div class="edu-entry">
+        <div class="edu-degree">BA Economics &amp; Management<br>Arts, Culture &amp; Communication</div>
+        <div class="edu-school">Università Cattolica del Sacro Cuore</div>
+        <div class="edu-detail">Collegio di Milano — merit-based residential college · 2018–2021</div>
+        <span class="edu-grade">106 / 110</span>
+      </div>
+    </div>
+
+    <!-- LANGUAGES -->
+    <div class="side-sec">
+      <div class="side-title">Languages</div>
+      <div class="lang-row"><span class="lang-name">Italian</span><span class="lang-level">Native</span></div>
+      <div class="lang-row"><span class="lang-name">English</span><span class="lang-level">C1 — Fluent</span></div>
+      <div class="lang-row"><span class="lang-name">French</span><span class="lang-level">B2 — Professional</span></div>
+      <div class="lang-row"><span class="lang-name">Spanish</span><span class="lang-level">B1 — Intermediate</span></div>
+      <div class="lang-row"><span class="lang-name">German</span><span class="lang-level">A2 → B1</span></div>
+    </div>
+
+    <!-- TOOLS -->
+    <div class="side-sec">
+      <div class="side-title">Technical Tools</div>
+      <div class="tool-list">
+        <span class="tool-tag">GA4 ✦ Certified</span>
+        <span class="tool-tag">SQL (Foundational)</span>
+        <span class="tool-tag">Meta Business Manager</span>
+        <span class="tool-tag">HubSpot CRM</span>
+        <span class="tool-tag">SAP</span>
+        <span class="tool-tag">Excel Advanced</span>
+        <span class="tool-tag">Tableau / Power BI</span>
+      </div>
+    </div>
+
+    <!-- SOFT SKILLS -->
+    <div class="side-sec">
+      <div class="side-title">Soft Skills</div>
+      <div class="tool-list">
+        <span class="pill pill-pink">Problem-solving</span>
+        <span class="pill pill-pink">Attention to Detail</span>
+        <span class="pill pill-blue">Stakeholder Management</span>
+        <span class="pill pill-dark">Strategic Prioritisation</span>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- ══ WONDERLAB BANNER ══ -->
+<div class="wonderlab">
+  <div class="wl-card">
+    <div class="wl-oct" style="background:var(--swan-pink)">◆</div>
+    <div class="wl-number" style="color:var(--swan-pink)">01</div>
+    <div class="wl-label" style="color:var(--swan-pink)">The Cut — Precision</div>
+    <p class="wl-desc">GA4, SQL, Excel pivot tables — the technical cuts that give raw data its shape and clarity. Every metric is a facet.</p>
+  </div>
+  <div class="wl-card">
+    <div class="wl-oct" style="background:var(--canary)">◆</div>
+    <div class="wl-number" style="color:var(--canary)">02</div>
+    <div class="wl-label" style="color:var(--canary)">The Light — Insight</div>
+    <p class="wl-desc">The brilliance emerges at the intersection of data and intuition — actionable insight that helps the brand shine and the customer feel seen.</p>
+  </div>
+  <div class="wl-card">
+    <div class="wl-oct" style="background:var(--powder-blue)">◆</div>
+    <div class="wl-number" style="color:var(--powder-blue)">03</div>
+    <div class="wl-label" style="color:var(--powder-blue)">The Warmth — Loyalty</div>
+    <p class="wl-desc">Translating cold data into warm customer loyalty strategies — because behind every data point is a person who chose the brand.</p>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <span class="footer-left">Bianca Maria Boninsegni · 2026</span>
+  <div class="footer-oct"></div>
+  <span class="footer-left">Bologna, IT · Zurich, CH</span>
+</footer>
+
+</body>
+</html>
